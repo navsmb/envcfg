@@ -1,4 +1,4 @@
-module github.com/nav-inc/envcfg
+module github.com/navsmb/envcfg
 
 go 1.16
 

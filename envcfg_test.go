@@ -124,17 +124,17 @@ func TestParserShape(t *testing.T) {
 		{
 			desc:   "non-string input",
 			parser: func(s string, i int) (foo, error) { return foo{}, nil },
-			err:    errors.New("envcfg: parser should accept only string arguments. github.com/nav-inc/envcfg.TestParserShape.func1 accepts a int argument"),
+			err:    errors.New("envcfg: parser should accept only string arguments. github.com/navsmb/envcfg.TestParserShape.func1 accepts a int argument"),
 		},
 		{
 			desc:   "wrong number of outputs",
 			parser: func(s string) (foo, string, error) { return foo{}, "", nil },
-			err:    errors.New("envcfg: parser should return 2 arguments. github.com/nav-inc/envcfg.TestParserShape.func2 returns 3 arguments"),
+			err:    errors.New("envcfg: parser should return 2 arguments. github.com/navsmb/envcfg.TestParserShape.func2 returns 3 arguments"),
 		},
 		{
 			desc:   "second output not error",
 			parser: func(s string) (foo, string) { return foo{}, "" },
-			err:    errors.New("envcfg: parser's last return value should be error. github.com/nav-inc/envcfg.TestParserShape.func3's last return value is string"),
+			err:    errors.New("envcfg: parser's last return value should be error. github.com/navsmb/envcfg.TestParserShape.func3's last return value is string"),
 		},
 		{
 			desc:   "any number of strings",
@@ -143,7 +143,7 @@ func TestParserShape(t *testing.T) {
 		{
 			desc:   "overwriting parser forbidden",
 			parser: func(x, y, z string) (foo, error) { return foo{}, nil },
-			err:    errors.New("envcfg: a parser has already been registered for the envcfg.foo type with 3 inputs.  cannot also register github.com/nav-inc/envcfg.TestParserShape.func5"),
+			err:    errors.New("envcfg: a parser has already been registered for the envcfg.foo type with 3 inputs.  cannot also register github.com/navsmb/envcfg.TestParserShape.func5"),
 		},
 		{
 			desc:   "success with type alias",
@@ -184,7 +184,7 @@ func TestBuggyParsers(t *testing.T) {
 		{
 			desc:   "parser that panics",
 			parser: func(s string) (foo, error) { panic("I panicked") },
-			err:    "1 error occurred:\n\n* envcfg: cannot populate B: github.com/nav-inc/envcfg.TestBuggyParsers.func2 panicked: I panicked",
+			err:    "1 error occurred:\n\n* envcfg: cannot populate B: github.com/navsmb/envcfg.TestBuggyParsers.func2 panicked: I panicked",
 		},
 	}
 
